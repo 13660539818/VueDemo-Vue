@@ -5,7 +5,7 @@
     <div id="slider" class="mui-slider">
       <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
         <div class="mui-scroll">
-          <a :class="['mui-control-item', item.id=0 ? 'mui-active': '']" v-for="item in cates" :key="item.id" @click="getPhotoListById(item.id)">
+          <a v-for="item in cates" :key="item.id" :class="['mui-control-item', item.id=0 ? 'mui-active': '']" @click="getPhotoListById(item.id)">
             {{item.title}}
           </a>
         </div>
@@ -13,7 +13,7 @@
     </div>
     <!-- 图片列表区域 -->
     <ul class="photo-list">
-        <router-link to="'/home/photoinfo/:' + item.id" v-for="item in list" tag="li">
+        <router-link to="'/home/photoinfo/:' + item.id" v-for="item in list" :key="item.id" tag="li">
             <img v-lazy="item.img_url">
             <div class="info">
                 <h1 class="info-title">{{item.title}}</h1>
