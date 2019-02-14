@@ -11,6 +11,7 @@ Vue.filter('dataFormat', function(dataStr, pattern = 'YYYY-MM-DD hh:mm:ss') {
 import vueResource from 'vue-resource';
 Vue.use(vueResource);
 Vue.http.options.root = '';
+Vue.http.options.emulateJSON = true;  // 群居设置post表单数据格式
 
 
 // 导入mui
@@ -19,11 +20,15 @@ import './lib/mui/css/icons-extra.css';
 import './lib/mui/fonts/mui-icons-extra.ttf';
 
 // 导入mint-ui
-import { Header, Swipe, SwipeItem, Button, Toast } from 'mint-ui';
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui';
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload);
+import MintUI from 'mint-ui';
+import 'mint-ui/lib/style.css';
+Vue.use(MintUI);
 
 import router from './router';
 
